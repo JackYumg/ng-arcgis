@@ -1,8 +1,14 @@
 <ul>
-    <li *ngFor="let layerTool of layerTools">
-        <span class="icon"></span>
-        <span class="name">
+  <li *ngFor="let layerTool of layerTools" [ngClass]="layerTool.active?'active':''" (click)="activeTools(layerTool)">
+    <span class="icon"
+          [ngStyle]="{'background': !layerTool.active?('url(./../../../assets/images/map/layer-tools/' + layerTool.icon + '.svg)'): ('url(./../../../assets/images/map/layer-tools/'+ layerTool.icon+'-1.svg)')}"></span>
+    <span class="name">
             {{layerTool.name}}
         </span>
-    </li>
+  </li>
 </ul>
+<div class="tool-popups">
+  <div class="layer-box">
+    <app-base-map-manage *ngIf="activeTool.name === '底图'"></app-base-map-manage>
+  </div>
+</div>

@@ -6,23 +6,25 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MapComponent } from './shared/map/map.component';
+import { NgMapButtonComponent } from './components/ng-map-button/ng-map-button.component';
 const SHARED_MODULES = [
-  
-]
+
+];
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MapComponent
+    MapComponent,
+    NgMapButtonComponent,
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
-    ...SHARED_MODULES
   ],
   exports: [
-    
+    SharedModule,
+    NgMapButtonComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

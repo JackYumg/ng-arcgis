@@ -1,0 +1,26 @@
+@import "./../../../core/style/var";
+
+ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 360px;
+
+  li {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+
+    img {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+    }
+  }
+
+  .active {
+    background: @theme;
+  }
+}

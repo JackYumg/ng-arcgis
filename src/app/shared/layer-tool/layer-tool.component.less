@@ -1,9 +1,41 @@
 @import './../../core/style/var.less';
-ul{
-    list-style: none;
-    margin: 0;
-    li {
-        display: inline-block;
-        border-right: 1px solid @theme;
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  li {
+    display: inline-block;
+    padding: 4px 6px;
+    cursor: pointer;
+    .name {
+      float: left;
     }
+
+    .icon {
+      width: 21px;
+      height: 100%;
+      float: left;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-right: 4px;
+    }
+
+    &.active {
+      background: fade(darken(@theme, 10%), 80%);
+      backdrop-filter: blur(5px);
+
+      .name {
+        color: lighten(@theme, 40%);
+      }
+    }
+  }
+}
+
+
+.tool-popups {
+  position: absolute;
+  top: 37px;
+  right: 0px;
 }

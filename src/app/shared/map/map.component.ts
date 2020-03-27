@@ -20,9 +20,9 @@ export class MapComponent implements OnInit {
     this.initMap().then(() => {
       console.info('地图初始化完成');
       console.info('开始加载底图------------------');
-      const layer = BASE_LAYERS[1];
-      this.layerControlServcie.loadBaseLayer(layer).then((layer) => {
-        console.log(layer);
+      const layer = BASE_LAYERS[0];
+      this.layerControlServcie.loadBaseLayer(layer).then(() => {
+        layer.active = true;
       });
     });
   }

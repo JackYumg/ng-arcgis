@@ -1,0 +1,5 @@
+ <ul>
+    <li *ngFor="let layer of baseLayers" [title]="layer.name" (click)="switchLayer(layer)" [ngClass]="layer.active?'active':''">
+        <img [src]="'assets/images/map/layer-tools/' +layer.static + '.jpg'"/>
+    </li>
+  </ul>
