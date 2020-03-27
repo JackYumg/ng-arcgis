@@ -24,7 +24,7 @@ export class LayerToolComponent implements OnInit {
         if (tool.active) {
           this.activeTool = tool;
         } else {
-          this.activeTool === {};
+          this.activeTool = {};
         }
       } else {
         tool.active = false;

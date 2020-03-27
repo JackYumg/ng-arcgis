@@ -8,7 +8,7 @@
   </li>
 </ul>
 <div class="tool-popups">
-  <div class="layer-box">
+  <div class="layer-box" *ngIf="activeTool.name">
     <app-base-map-manage *ngIf="activeTool.name === '底图'"></app-base-map-manage>
   </div>
 </div>

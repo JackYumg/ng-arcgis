@@ -26,7 +26,9 @@ const SHARED_MODULES = [
     SharedModule,
     NgMapButtonComponent
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
