@@ -37,12 +37,14 @@ export class MapComponent implements OnInit {
       "esri/layers/MapImageLayer",
     ]);
     const map = new Map({
-
+      layers: [],
+      ground: { layers: [], surfaceColor: [255, 255, 255, 1], opacity: 1 }
     });
     this.mapService.setMap(map);
     return new SceneView({
       container: this.mapElm.nativeElement,
       map,
+      viewingMode: 'local',
       qualityProfile: 'medium',
       highlightOptions: {
         color: [0, 255, 255],
