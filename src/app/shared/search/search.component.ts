@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { SearchService } from './search.service';
 // import {SearchService} from "./search.service";
 // import {PostData} from "./post-data";
 
@@ -19,7 +20,7 @@ export class SearchComponent implements OnInit {
   };
 
   constructor(
-    // private  searchService: SearchService
+    private  searchService: SearchService
   ) {
   }
 
@@ -27,9 +28,9 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    // const obs = this.searchService.getSimpleResult(this.filterSimpleOption);
-    // obs.subscribe((result) => {
-    //   console.log(result);
-    // });
+    const obs = this.searchService.getSimpleResult(this.filterSimpleOption);
+    obs.subscribe((result) => {
+      console.log(result);
+    });
   }
 }
