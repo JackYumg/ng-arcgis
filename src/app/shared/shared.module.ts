@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { LayerToolComponent } from './layer-tool/layer-tool.component';
 import { SearchComponent } from './search/search.component';
 import { BaseMapManageComponent } from './layer-tool/base-map-manage/base-map-manage.component';
-import { LayerMenuComponent } from './layer-menu/layer-menu.component';
+// import { LayerMenuComponent } from './layer-menu/layer-menu.component';
 import {HttpClientModule} from "@angular/common/http";
 
 const SHARED_COMPONENTS = [
   LayerToolComponent,
   SearchComponent,
   BaseMapManageComponent,
-  LayerMenuComponent
+  // LayerMenuComponent
 ];
 
 const SHARED_DIRECTIVES = [

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SearchService} from "./search.service";
-import {PostData} from "./post-data";
+// import {SearchService} from "./search.service";
+// import {PostData} from "./post-data";
 
 @Component({
   selector: 'app-search',
@@ -9,7 +9,7 @@ import {PostData} from "./post-data";
 })
 export class SearchComponent implements OnInit {
 
-  filterSimpleOption: PostData = {
+  filterSimpleOption: any = {
     searchWord: "",
     needPolygon: "false",
     needPre: "false",
@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   };
 
   constructor(
-    private  searchService: SearchService
+    // private  searchService: SearchService
   ) {
   }
 
@@ -27,9 +27,9 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    const obs = this.searchService.getSimpleResult(this.filterSimpleOption);
-    obs.subscribe((result) => {
-      console.log(result);
-    });
+    // const obs = this.searchService.getSimpleResult(this.filterSimpleOption);
+    // obs.subscribe((result) => {
+    //   console.log(result);
+    // });
   }
 }
