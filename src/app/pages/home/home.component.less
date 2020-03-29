@@ -2,6 +2,15 @@
 .home{
     height: 100%;
     width: 100%;
+    &::after{
+      content: " ";
+      position: absolute;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      box-shadow: 0 0 200px 100px fade(black , 50%) inset;
+      pointer-events: none;
+    }
 }
 
 .layer-tool{
