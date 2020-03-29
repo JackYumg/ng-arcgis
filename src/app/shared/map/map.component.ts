@@ -17,7 +17,8 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.initMap().then(() => {
+    this.initMap().then((view) => {
+      this.mapService.setView(view);
       console.info('地图初始化完成');
       console.info('开始加载底图------------------');
       const layer = BASE_LAYERS[0];
