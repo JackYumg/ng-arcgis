@@ -12,17 +12,10 @@ export const enum BASE_MAPS {
 
 export const BASE_LAYERS = [
   {
-    name: '矢量底图', layers: [
-      {serviceName: 'vec_w/wmts', layer: 'vec'},
-      {serviceName: 'cva_w/wmts', layer: 'cva'}
-    ], id: 'base-layer-vec', layerType: LAYER_TYPES.TileLayer, request: 'GetTile', service: 'WMTS',static: 'vec',
-    active: false
-  },
-  {
     name: '影像底图',
     layers: [
-      {serviceName: 'img_w/wmts', layer: 'img'},
-      {serviceName: 'cia_w/wmts', layer: 'cia'}
+      { serviceName: 'img_w/wmts', layer: 'img' },
+      { serviceName: 'cia_w/wmts', layer: 'cia' }
     ],
     id: 'base-layer-img',
     layerType: LAYER_TYPES.TileLayer,
@@ -32,10 +25,17 @@ export const BASE_LAYERS = [
     active: false
   },
   {
+    name: '矢量底图', layers: [
+      { serviceName: 'vec_w/wmts', layer: 'vec' },
+      { serviceName: 'cva_w/wmts', layer: 'cva' }
+    ], id: 'base-layer-vec', layerType: LAYER_TYPES.TileLayer, request: 'GetTile', service: 'WMTS', static: 'vec',
+    active: false
+  },
+  {
     name: '地形晕渲',
     layers: [
-      {serviceName: 'ter_w/wmts', layer: 'ter'},
-      {serviceName: 'cta_w/wmts', layer: 'cta'}
+      { serviceName: 'ter_w/wmts', layer: 'ter' },
+      { serviceName: 'cta_w/wmts', layer: 'cta' }
     ],
     id: 'base-layer-ter_w',
     layerType: LAYER_TYPES.TileLayer,
