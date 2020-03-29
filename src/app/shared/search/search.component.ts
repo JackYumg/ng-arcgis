@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { TestService } from '../service/test.service';
 // import {SearchService} from "./search.service";
 // import {PostData} from "./post-data";
 
@@ -19,7 +20,7 @@ export class SearchComponent implements OnInit {
   };
 
   constructor(
-    // private  searchService: SearchService
+    private  testService: TestService
   ) {
   }
 
@@ -31,5 +32,6 @@ export class SearchComponent implements OnInit {
     // obs.subscribe((result) => {
     //   console.log(result);
     // });
+    this.testService.addLayer();
   }
 }
