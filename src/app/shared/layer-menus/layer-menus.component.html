@@ -1,1 +1,26 @@
-<p>layer-menus works!</p>
+<ul class="main">
+  <li *ngFor="let menu of layerMenus" (click)="selectMenu(menu)" [ngClass]="menu.active?'active':''">
+    <p>
+        <span class="icon">
+        <img src="../../../assets/images/map/layer-menus/theme.png"/>
+      </span>
+    </p>
+    <p>
+        <span class="name">
+        {{menu.name}}
+      </span>
+    </p>
+  </li>
+</ul>
+
+
+<!--气泡弹出层-->
+<div class="popup-modal" *ngIf="showModal">
+  <div class="layer-box">
+    <ul>
+      <li *ngFor="let subMenu of showSubMenus" (click)="activeSubMenu(subMenu)">
+        <span><img src="./../../../assets/images/map/layer-menus/virus.svg">{{subMenu.name}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

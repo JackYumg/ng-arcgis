@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MapComponent } from './shared/map/map.component';
 import { NgMapButtonComponent } from './components/ng-map-button/ng-map-button.component';
+import { VirusComponent } from './pages/home/virus/virus.component';
 const SHARED_MODULES = [
 
 ];
@@ -16,6 +17,7 @@ const SHARED_MODULES = [
     HomeComponent,
     MapComponent,
     NgMapButtonComponent,
+    VirusComponent,
   ],
   imports: [
     SharedModule,

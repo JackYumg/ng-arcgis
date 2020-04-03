@@ -32,15 +32,15 @@ export class MapComponent implements OnInit {
   mapElm: ElementRef;
 
   async initMap() {
-    const [Map, SceneView] = await loadModules([
-      'esri/Map', 'esri/views/SceneView',
+    const [Map, MapView] = await loadModules([
+      'esri/Map', 'esri/views/MapView',
       "esri/layers/MapImageLayer",
     ]);
     const map = new Map({
 
     });
     this.mapService.setMap(map);
-    return new SceneView({
+    return new MapView({
       container: this.mapElm.nativeElement,
       map,
       qualityProfile: 'medium',

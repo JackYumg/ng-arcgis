@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   mapUrl: 'http://t0.tianditu.gov.cn/',
   mapToken: '820cd2648343dbc38b6ea3d145f6cf4e',
-  apiUrl: 'http://api.tianditu.gov.cn/'
+  apiUrl: 'http://api.tianditu.gov.cn/',
+  apiUrlt: 'https://www.tianditu.gov.cn/'
 };
 
 /*

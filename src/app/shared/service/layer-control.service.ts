@@ -12,7 +12,8 @@ export class LayerControlService {
 
   constructor(
     private mapService: MapService
-  ) { }
+  ) {
+  }
 
   async addLayer(layerType, layer, options?) {
     const [MapImageLayer, TileLayer, VectorTileLayer, IntegratedMeshLayer, FeatureLayer] = await loadModules([
@@ -23,7 +24,7 @@ export class LayerControlService {
       'esri/layers/FeatureLayer'
     ]);
 
-    let layerObj: any = {}
+    let layerObj: any = {};
     const map = this.mapService.getMap();
     switch (layerType) { // 瓦片图层
       case LAYER_TYPES.TileLayer:
@@ -75,4 +76,55 @@ export class LayerControlService {
     return BASE_LAYERS;
   }
 
+  public async addFeatureLayerByPoints(points: any[], renderer, layerId, fields) {
+    const [GraphicsLayer, Graphic, Polygon, FeatureLayer, Point] = await loadModules([
+      'esri/layers/GraphicsLayer',
+      "esri/Graphic",
+      "esri/geometry/Polygon",
+      "esri/layers/FeatureLayer",
+      "esri/geometry/Point"
+    ]);
+    var symbol = {
+      type: "picture-marker",
+      url: "/assets/images/map/layer-tools/marker-1.svg",//图片地址
+      width: "32px",
+      height: "32px"
+    };
+    const features = points.map((item) => {// 要素集合，即同类几何图形的集合
+      item.pointtype = layerId;// 类型pointtype，便于点击事件处理
+      item.x = item.longitude;
+      item.y = item.latitude;
+      item.type = '疫情点';
+      return new Graphic(new Point(item), symbol);
+    });
+
+    const renderear = this.getRenderer();
+
+    var gLayer = new GraphicsLayer();
+    // gLayer.visible = false;
+    this.mapService.getMap().add(gLayer);
+
+
+    gLayer.graphics.addMany(features);//添加到图层中显示
+  }
+
+  // (3)获取隐患点的渲染器
+  private getRenderer() {
+    let renderer = {
+      type: 'unique-value',
+      field: 'type',
+      defaultSymbol: {type: 'picture-marker'},
+      uniqueValueInfos: []
+    };
+    renderer.uniqueValueInfos.push({
+      value: '疫情点',
+      symbol: {
+        type: 'picture-marker',
+        url: './assets/images/map/layer-tools/marker-1.svg',
+        width: '30px',
+        height: '30px'
+      }
+    });
+    return renderer;
+  }
 }

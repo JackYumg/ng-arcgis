@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LayerToolComponent } from './layer-tool/layer-tool.component';
 import { SearchComponent } from './search/search.component';
@@ -24,14 +24,14 @@ const SHARED_MODULES = [
 ];
 
 const SHARED_PIPES = [
-
+  DatePipe
 ];
 
 @NgModule({
   declarations: [
     ...SHARED_COMPONENTS,
     ...SHARED_DIRECTIVES,
-    ...SHARED_PIPES,
+    // ...SHARED_PIPES,
   ],
   exports: [
     ...SHARED_COMPONENTS,
@@ -44,7 +44,7 @@ const SHARED_PIPES = [
     FormsModule
   ],
   providers: [
-
+    ...[SHARED_PIPES]
   ]
 
 })

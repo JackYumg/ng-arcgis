@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { MapService } from '../map/map.service';
-import { loadModules } from 'esri-loader';
+import {Injectable} from '@angular/core';
+import {MapService} from '../map/map.service';
+import {loadModules} from 'esri-loader';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class TestService {
 
   constructor(
     private mapService: MapService
-  ) { }
+  ) {
+  }
 
   async addLayer() {
     const [Map, SceneView, GraphicsLayer, Graphic] = await loadModules([
@@ -28,19 +29,20 @@ export class TestService {
      *********************/
 
     var graphicsLayer = new GraphicsLayer();
+
     map.add(graphicsLayer);
 
     /*************************
      * Add a 3D point graphic
      *************************/
 
-    // London
+      // London
     var point = {
-      type: "point", // autocasts as new Point()
-      x: 106.54,
-      y: 29.59,
-      z: 1010
-    };
+        type: "point", // autocasts as new Point()
+        x: 106.54,
+        y: 29.59,
+        z: 1010
+      };
 
     var markerSymbol = {
       type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
@@ -114,4 +116,81 @@ export class TestService {
 
     graphicsLayer.add(polygonGraphic);
   }
+
+  async addLine() {
+    const [Map, SceneView, GraphicsLayer, Graphic] = await loadModules([
+      "esri/Map",
+      "esri/views/SceneView",
+      "esri/layers/GraphicsLayer",
+      "esri/Graphic"
+    ]);
+    var graphicsLayer = new GraphicsLayer();
+    var polygon = {
+      type: "polygon",
+      rings: [
+        [-118.818984489994, 34.0137559967283],
+        [-118.806796597377, 34.0215816298725],
+        [-118.791432890735, 34.0163883241613],
+        [-118.79596686535, 34.008564864635],
+        [-118.808558110679, 34.0035027131376]
+      ]
+    };
+
+    var simpleFillSymbol = {
+      type: "simple-fill",
+      color: [227, 139, 79, 0.8],  // orange, opacity 80%
+      outline: {
+        color: [255, 255, 255],
+        width: 1
+      }
+    };
+
+    var polygonGraphic = new Graphic({
+      geometry: polygon,
+      symbol: simpleFillSymbol
+    });
+
+
+    graphicsLayer.add(polygonGraphic);
+
+    var map = this.mapService.getMap();
+    var view = this.mapService.getView();
+    map.add(graphicsLayer);
+  }
+
+//  绘制线条
+  async drawLine(points) {
+    const [Map, SceneView, GraphicsLayer, Graphic] = await loadModules([
+      "esri/Map",
+      "esri/views/SceneView",
+      "esri/layers/GraphicsLayer",
+      "esri/Graphic"
+    ]);
+
+    var map = this.mapService.getMap();
+
+    var graphicsLayer = new GraphicsLayer();
+    map.add(graphicsLayer);
+
+
+    // Create a line geometry
+    var simpleLineSymbol = {
+      type: "simple-line",
+      color: [226, 119, 40], // orange
+      width: 2
+    };
+
+    var polyline = {
+      type: "polyline",
+      paths: points
+    };
+
+    var polylineGraphic = new Graphic({
+      geometry: polyline,
+      symbol: simpleLineSymbol
+    });
+
+    graphicsLayer.add(polylineGraphic);
+  }
+
 }
