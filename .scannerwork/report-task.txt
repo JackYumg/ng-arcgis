@@ -1,0 +1,6 @@
+projectKey=JackYumg_ng-arcgis_f8bd7955-9443-433f-b4e6-e15a296e508f
+serverUrl=http://localhost:9000/sonar
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/sonar/dashboard?id=JackYumg_ng-arcgis_f8bd7955-9443-433f-b4e6-e15a296e508f
+ceTaskId=1aacf2ca-29ba-40fb-a295-88c966c8e2d6
+ceTaskUrl=http://localhost:9000/sonar/api/ce/task?id=1aacf2ca-29ba-40fb-a295-88c966c8e2d6
